@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroneStore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-800">
+      <!-- Navbar -->
+    <header class="fixed top-0 w-full h-24 bg-white shadow-md z-10">
+      <div class="flex justify-between items-center max-w-7xl mx-auto p-4">
+        <!-- Logo -->
+        <img src="images/2.png" alt="ARSKaart Logo" class="h-20 w-auto" />
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex space-x-8 items-center">
+          <a href="#home" class="hover:text-blue-500 font-medium">Home</a>
+          <a href="#shop" class="hover:text-blue-500 font-medium">Shop</a>
+          <a href="#categories" class="hover:text-blue-500 font-medium"
+            >Categories</a
+          >
+
+          <!-- Services Dropdown -->
+          <div class="relative group">
+            <button class="hover:text-blue-500 font-medium">Services</button>
+            <div
+              class="absolute left-0 mt-2 w-44 bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 invisible group-hover:visible"
+            >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Free Shipping</a
+              >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >24/7 Support</a
+              >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Drone Training</a
+              >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Repairs</a>
+            </div>
+          </div>
+
+          <!-- Blog Dropdown -->
+          <div class="relative group">
+            <button class="hover:text-blue-500 font-medium">Blog</button>
+            <div
+              class="absolute left-0 mt-2 w-44 bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 invisible group-hover:visible"
+            >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Latest Posts</a
+              >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Guides</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Case Studies</a
+              >
+            </div>
+          </div>
+
+          <!-- Contact Dropdown -->
+          <div class="relative group">
+            <button class="hover:text-blue-500 font-medium">Contact</button>
+            <div
+              class="absolute left-0 mt-2 w-44 bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 invisible group-hover:visible"
+            >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Contact Form</a
+              >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Support Chat</a
+              >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Location</a>
+            </div>
+          </div>
+
+          <a href="#" class="hover:text-blue-500 font-medium">Wishlist</a>
+          <a href="#" class="hover:text-blue-500 font-medium">Login</a>
+          <a href="#" class="hover:text-blue-500 font-medium">Cart</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden text-3xl cursor-pointer" id="menu-toggle">
+          &#9776;
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <ul class="hidden flex-col bg-white border-t md:hidden" id="mobile-menu">
+        <li>
+          <a href="#home" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+        </li>
+        <li>
+          <a href="#shop" class="block px-4 py-2 hover:bg-gray-100">Shop</a>
+        </li>
+        <li>
+          <a href="#categories" class="block px-4 py-2 hover:bg-gray-100"
+            >Categories</a
+          >
+        </li>
+
+        <!-- Services Dropdown -->
+        <li class="border-t">
+          <button
+            class="w-full text-left px-4 py-2 hover:bg-gray-100"
+            onclick="toggleDropdown('services-menu')"
+          >
+            Services ▼
+          </button>
+          <ul id="services-menu" class="hidden flex-col">
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100"
+                >Free Shipping</a
+              >
+            </li>
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100"
+                >24/7 Support</a
+              >
+            </li>
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100"
+                >Drone Training</a
+              >
+            </li>
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100">Repairs</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Blog Dropdown -->
+        <li class="border-t">
+          <button
+            class="w-full text-left px-4 py-2 hover:bg-gray-100"
+            onclick="toggleDropdown('blog-menu')"
+          >
+            Blog ▼
+          </button>
+          <ul id="blog-menu" class="hidden flex-col">
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100"
+                >Latest Posts</a
+              >
+            </li>
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100">Guides</a>
+            </li>
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100"
+                >Case Studies</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Contact Dropdown -->
+        <li class="border-t">
+          <button
+            class="w-full text-left px-4 py-2 hover:bg-gray-100"
+            onclick="toggleDropdown('contact-menu')"
+          >
+            Contact ▼
+          </button>
+          <ul id="contact-menu" class="hidden flex-col">
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100"
+                >Contact Form</a
+              >
+            </li>
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100"
+                >Support Chat</a
+              >
+            </li>
+            <li>
+              <a href="#" class="block px-6 py-2 hover:bg-gray-100">Location</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Wishlist</a>
+        </li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Login</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Cart</a></li>
+      </ul>
+
+      <!-- JS for Mobile Dropdown -->
+      <script>
+        function toggleDropdown(id) {
+          const menu = document.getElementById(id);
+          menu.classList.toggle("hidden");
+        }
+
+        document
+          .getElementById("menu-toggle")
+          .addEventListener("click", function () {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+          });
+      </script>
+    </header>
+
+    <!-- Blogs Section -->
+<main class="pt-32 pb-16 max-w-5xl mx-auto px-4">
+    <a 
+    href="javascript:history.back()" 
+    class="inline-flex items-center mb-6 text-blue-600 hover:text-blue-800 font-medium transition duration-300"
+  >
+    ← Go Back
+  </a>
+  <h1 class="text-4xl font-bold mb-10 text-center">All Blog Posts</h1>
+
+  <div class="space-y-10">
+    <!-- Blog Item -->
+    <article class="flex flex-col md:flex-row items-start gap-6 border-b pb-8">
+      <img src="https://imgs.search.brave.com/RBjm-pgkpjnZuDUM2a1pcWO67EUD68Q7wc5uh8ShtYY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMzUw/NzQ5OC5qcGc" alt="Blog image"
+        class="w-full md:w-64 h-40 object-cover rounded-lg">
+      <div class="flex-1">
+        <h2 class="text-2xl font-semibold mb-2">Top 7 Industries Where Drones Are Creating Opportunities</h2>
+        <p class="text-gray-600 mb-3">
+          We have seen previously how and why drones have revolutionised with time also seen in what extent it is useful in today's world and among peoples.Here we will see...
+        </p>
+        <div class="text-sm text-gray-500 mb-4">
+          By <span class="font-medium text-gray-700">Aditya Shaw</span> • Jan 5, 2025
+        </div>
+        <a href="blog1.html" 
+           class="inline-block px-4 py-2 rounded-lg text-white font-medium
+                  bg-gradient-to-r from-purple-600 to-pink-500
+                  hover:from-pink-500 hover:to-purple-600 transition">
+          Read More
+        </a>
+      </div>
+    </article>
+
+    <!-- Blog Item -->
+    <article class="flex flex-col md:flex-row items-start gap-6 border-b pb-8">
+      <img src="https://imgs.search.brave.com/UQi9nm8jxuJPAq7Ay-WPjAMNBUZkQhvUI01IMijxETI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxOS8w/NS8xNS8xMS8yNC9k/amktNDIwNDgwMV82/NDAuanBn" alt="Blog image"
+        class="w-full md:w-64 h-40 object-cover rounded-lg">
+      <div class="flex-1">
+        <h2 class="text-2xl font-semibold mb-2">India’s Booming Drone Industry: Hidden Job Roles and Career Paths</h2>
+        <p class="text-gray-600 mb-3">
+          Drones in recent scenario upgrading in a number of sectors by replacing much of men's effort. Number of jobs are enhancing by taking in usage of the aerial technology in...
+        </p>
+        <div class="text-sm text-gray-500 mb-4">
+          By <span class="font-medium text-gray-700">Drone Expert</span> • Jan 12, 2025
+        </div>
+        <a href="blog2.html" 
+           class="inline-block px-4 py-2 rounded-lg text-white font-medium
+                  bg-gradient-to-r from-purple-600 to-pink-500
+                  hover:from-pink-500 hover:to-purple-600 transition">
+          Read More
+        </a>
+      </div>
+    </article>
+
+    <!-- Blog Item -->
+    <article class="flex flex-col md:flex-row items-start gap-6 border-b pb-8">
+      <img src="https://imgs.search.brave.com/JRQvkIzz50tAoF_L2P8wPViHRPN_Ihzgxi49nth7b4w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEzLzgxLzU4LzM5/LzM2MF9GXzEzODE1/ODM5NzhfS1JuUHN3/TlM0T21wZFBEV1Vr/bnBBUzFwMWZ1SzZC/eksuanBn" alt="Blog image"
+        class="w-full md:w-64 h-40 object-cover rounded-lg">
+      <div class="flex-1">
+        <h2 class="text-2xl font-semibold mb-2">Smart Farming with Drones: A Game Changer for Indian Farmers</h2>
+        <p class="text-gray-600 mb-3">
+          Agriculture, the most important aspect of India’s economical development. It is one of the most basic and one of the crucial working sector of our country and the world...
+        </p>
+        <div class="text-sm text-gray-500 mb-4">
+          By <span class="font-medium text-gray-700">Aerial Pro</span> • Jan 20, 2025
+        </div>
+        <a href="blog3.html" 
+           class="inline-block px-4 py-2 rounded-lg text-white font-medium
+                  bg-gradient-to-r from-purple-600 to-pink-500
+                  hover:from-pink-500 hover:to-purple-600 transition">
+          Read More
+        </a>
+      </div>
+    </article>
+
+        <!-- Blog Item -->
+    <article class="flex flex-col md:flex-row items-start gap-6 border-b pb-8">
+      <img src="https://imgs.search.brave.com/SUSrGctmdFnwzjGb88IkD718dlSBz1gVp4Us3Kt_2tE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/MjUwNjU2OTU5MTAt/NTFlMDE1N2ZlMmMw/P2ZtPWpwZyZxPTYw/Jnc9MzAwMCZpeGxp/Yj1yYi00LjEuMCZp/eGlkPU0zd3hNakEz/ZkRCOE1IeHpaV0Z5/WTJoOE9IeDhOR3Ns/TWpCa2NtOXVaWHhs/Ym53d2ZId3dmSHg4/TUE9PQ" alt="Blog image"
+        class="w-full md:w-64 h-40 object-cover rounded-lg">
+      <div class="flex-1">
+        <h2 class="text-2xl font-semibold mb-2">THE WORLD FROM ABOVE: Revolutionization of DRONES</h2>
+        <p class="text-gray-600 mb-3">
+          When we talk about the best view it is always the view from the top perspective that covers the wide range. The more you are on the elevation you get a best or a suitable view of any location, place , land or any bodies an..
+        </p>
+        <div class="text-sm text-gray-500 mb-4">
+          By <span class="font-medium text-gray-700">Aerial Pro</span> • Jan 20, 2025
+        </div>
+        <a href="blog4.html" 
+           class="inline-block px-4 py-2 rounded-lg text-white font-medium
+                  bg-gradient-to-r from-purple-600 to-pink-500
+                  hover:from-pink-500 hover:to-purple-600 transition">
+          Read More
+        </a>
+      </div>
+    </article>
+
+    <!-- Add more blogs by copying the same structure -->
+  </div>
+</main>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+      &copy; 2025 DroneStore. All rights reserved.
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+    </script>
+    
+</body>
+</html>
